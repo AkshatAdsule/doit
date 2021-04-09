@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+$default-font: "Work Sans", sans-serif;
+$default-font-size: 1.25rem;
+
+// Application colors
+$bg-color: #1e1e1e;
+$text-color: #fbfcff;
+$accent-color: #db504a;
+$secondary-color: #ffb259;
+$light-gray: #d0ccd0;
+// $accent-gradient: linear-gradient(90deg, rgba(0,99,255,1) 0%, rgba(0,255,214,1) 100%);
+$accent-gradient: linear-gradient(
+  90deg,
+  $accent-color 0%,
+  $secondary-color 100%
+);
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: $default-font;
+  font-size: $default-font-size;
+}
+
+.accent-gradient-text {
+  background: $accent-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.logo {
+  font-size: 4rem;
+}
