@@ -6,6 +6,7 @@ interface TodoList {
 }
 
 interface ToDoListItem {
+  id: number;
   title: string;
   done: boolean;
 }

@@ -1,10 +1,33 @@
-<div class="about">
-  <h1 class="accent-gradient-text logo">Do It</h1>
-  <p>Work together to accomplish goals</p>
-  <a
-    [routerLink]="['/signup']"
-    routerLinkActive="router-link-active"
-    class="btn btn-outline-light"
-    >Sign Up</a
-  >
+<div class="container row about">
+  <div class="col">
+    <h1 class="accent-gradient-text logo">Do It</h1>
+    <p>Work together to accomplish goals</p>
+    <a
+      [routerLink]="['/signup']"
+      routerLinkActive="router-link-active"
+      class="btn btn-outline-light"
+      >Sign Up</a
+    >
+  </div>
+
+  <div class="col mock-list">
+    <div class="mock-list-top">
+      <h1 class="mock-title">V1 Release 🎯</h1>
+      <p>
+        <span class="todo"
+          >{{ incompleteCount }}
+          {{ incompleteCount == 1 ? "item" : "items" }} todo</span
+        >,
+        <span class="done"
+          >{{ completedCount }}
+          {{ completedCount == 1 ? "item" : "items" }} done</span
+        >
+      </p>
+    </div>
+    <app-list-item
+      *ngFor="let item of mockTodoItems"
+      [listItem]="item"
+      (itemCheckedEvent)="onCheckBoxClick($event)"
+    ></app-list-item>
+  </div>
 </div>

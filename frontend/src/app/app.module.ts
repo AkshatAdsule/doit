@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitlebarComponent } from './titlebar/titlebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AboutComponent } from './about/about.component';
     TitlebarComponent,
     FooterComponent,
     AboutComponent,
+    ListItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
