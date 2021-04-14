@@ -229,6 +229,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@angular/material@^11.2.8":
+  version "11.2.8"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-11.2.8.tgz#c0fb8c3b871bc2d477f6ad980918d47579f410fe"
+  integrity sha512-mCHOdJgWmlVF4suZFKKmmyprnPNBlCOYyHtQfjmcXRJp6WFX/nd11Mfrs9fY8pQJ2FWjOwxfABEPBGM/E7HxIg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@angular/platform-browser-dynamic@~11.1.0":
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-11.1.2.tgz#f9167fe41c649b1dce0e05902a39d85571bd818b"
@@ -1123,80 +1130,6 @@
     loader-utils "^2.0.0"
     merge-source-map "^1.1.0"
     schema-utils "^2.7.0"
-
-"@material/animation@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/animation/-/animation-10.0.0.tgz#2833a1779426715b418b65eb4c9344bf647a84fa"
-  integrity sha512-5e8e+W+n105rfSTRI5Mfmh9VMqzNG8+OhxjfDr7k0lYCfjbkT8LsAInonC5EotJzcaxD0vtDUqRqdW8xKIXNWg==
-  dependencies:
-    tslib "^1.9.3"
-
-"@material/base@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/base/-/base-10.0.0.tgz#25cb35a4fa089c0a9852b153b086ccceb78695fc"
-  integrity sha512-PQWNSsNYVvMcWKsRFHgs5JjsHuv6cTogdlp9uhx5ChdLNCkflpXlMKJ7aYfcl56fdLntWQbxXowLh1JAfrTrmg==
-  dependencies:
-    tslib "^1.9.3"
-
-"@material/checkbox@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-10.0.0.tgz#09fa644efa7c8ff16e74f0efa4441e168f552274"
-  integrity sha512-aZc8KLo+yT15tnEpJWBvqJhUFEVqAKs56DGC8PaKfwfJJMVS0D4Hek61cpl4Jthv6j5eduvpiZ/2DRE8D530Hg==
-  dependencies:
-    "@material/animation" "^10.0.0"
-    "@material/base" "^10.0.0"
-    "@material/density" "^10.0.0"
-    "@material/dom" "^10.0.0"
-    "@material/feature-targeting" "^10.0.0"
-    "@material/ripple" "^10.0.0"
-    "@material/theme" "^10.0.0"
-    "@material/touch-target" "^10.0.0"
-    tslib "^1.9.3"
-
-"@material/density@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/density/-/density-10.0.0.tgz#24795406d092cf0e6422e1c9dc8bc2b978c46e7a"
-  integrity sha512-nLf8N5e6tEYo+W762z3coTDl2b1FFKJv/uU+E5UsBYOL0ftXrOMtiYSwg9MJjfWtdG+uUBfb3VLcBvIl2x3C0w==
-
-"@material/dom@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/dom/-/dom-10.0.0.tgz#83bc5c4cdbcb6337c9687d962953919e1a624e30"
-  integrity sha512-rimaFIRsbacSjnk/1IqQZLOjoIWYhmuR6AZR35nkeAYg0H3DmLuNTGyAgsMaC8O/1vBcAp+c4N9WASkITCOE5A==
-  dependencies:
-    "@material/feature-targeting" "^10.0.0"
-    tslib "^1.9.3"
-
-"@material/feature-targeting@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/feature-targeting/-/feature-targeting-10.0.0.tgz#6aeffed7c936af22c5b23d9b75431675469ce4ca"
-  integrity sha512-Pn48jeeD2ScMq0NoR0k9SeC3UFOOTarKNIYxL+TkFRLGks/TgFoSIDRwXCzva/9umw9/Q2xOWrY/Gqs1zBIgOA==
-
-"@material/ripple@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-10.0.0.tgz#5c5e9da3720ad521e477d6b0ea2059e9351067ce"
-  integrity sha512-KZPJ6YvLFJKkulUemKFq/Y3h9/Pbta+zOjBN1ZoeiP5++5thfsMJuL+L2bWa4GqUjSj66xW75LQrxX/ammCYzw==
-  dependencies:
-    "@material/animation" "^10.0.0"
-    "@material/base" "^10.0.0"
-    "@material/dom" "^10.0.0"
-    "@material/feature-targeting" "^10.0.0"
-    "@material/theme" "^10.0.0"
-    tslib "^1.9.3"
-
-"@material/theme@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/theme/-/theme-10.0.0.tgz#f0207be9356e85e07b7d86ac48c7ca75a968d2dc"
-  integrity sha512-ll5UFjPR6np4jgTzDQO85VQg6FgLM0Vy1MlyJVRr/kn+2adX5hDxiBOnuC9fTeVhIBBPjbAMOFPa6VhNmAmkvg==
-  dependencies:
-    "@material/feature-targeting" "^10.0.0"
-
-"@material/touch-target@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@material/touch-target/-/touch-target-10.0.0.tgz#8a7bcb00d54616b0e18544363f2cad9077fc4c12"
-  integrity sha512-uDWxktK/CODyNNyvXwzTFXcxqujQrVX3LoIsOXu87Z0fq4n2u74WlemJoniMbVKdsKsiJWcZ1uvrvhSeOdNQ2Q==
-  dependencies:
-    "@material/base" "^10.0.0"
-    "@material/feature-targeting" "^10.0.0"
 
 "@ngtools/webpack@11.1.4":
   version "11.1.4"
@@ -8598,7 +8531,7 @@ tslib@2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
-tslib@^1.10.0, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
+tslib@^1.10.0, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
