@@ -22,7 +22,7 @@ export class ListItemComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
-  onCheck() {
+  onCheck(): void {
     this.itemCheckedEvent.emit(this.listItem.id);
   }
 

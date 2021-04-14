@@ -1,0 +1,84 @@
+<form class="signup-form" [formGroup]="signup_form">
+  <div class="name-inputs">
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="First Name"
+          formControlName="first_name"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Last Name"
+          formControlName="last_name"
+          required
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="input">
+    <mat-form-field appearance="outline">
+      <mat-label>User Name</mat-label>
+      <input
+        matInput
+        placeholder="User Name"
+        formControlName="user_name"
+        required
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="input">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" required />
+      <mat-error *ngIf="signup_form.get('email')?.invalid"
+        >Email is invalid!</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="input">
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        [type]="hide_password ? 'password' : 'text'"
+      />
+      <mat-error *ngIf="signup_form.get('password')?.invalid"
+        >Password is too short!</mat-error
+      >
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide_password = !hide_password"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide_password"
+      >
+        <mat-icon>{{
+          hide_password ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      id="submit"
+      color="primary"
+      type="submit"
+      [disabled]="!signup_form.valid"
+    >
+      Sign Up
+    </button>
+  </div>
+</form>
