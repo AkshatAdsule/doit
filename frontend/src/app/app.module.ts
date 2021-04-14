@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { TitlebarComponent } from './titlebar/titlebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { ListItemComponent } from './list-item/list-item.component';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { SignupComponent } from './signup/signup.component';
     TitlebarComponent,
     FooterComponent,
     AboutComponent,
-    ListItemComponent,
     SignupComponent,
   ],
   imports: [
