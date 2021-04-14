@@ -24,16 +24,12 @@
         >
       </p>
     </div>
-    <!-- <app-list-item
-      *ngFor="let item of mockTodoItems"
-      [listItem]="item"
-      (itemCheckedEvent)="onCheckBoxClick($event)"
-    ></app-list-item> -->
     <div class="todos">
       <mat-checkbox
         *ngFor="let item of mockTodoItems"
         class="mock-todo"
         [checked]="item.done"
+        (change)="onCheckBoxClick(item.id)"
         >{{ item.title }}</mat-checkbox
       >
     </div>
