@@ -15,6 +15,8 @@ interface User {
   email: string;
   first_name: string;
   last_name: string;
+  uid?: string;
+  lists?: string[];
 }
 
 declare enum ShareType {
