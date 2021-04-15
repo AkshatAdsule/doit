@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "doit-aksads": {
+      "hosting": {
+        "doit": [
+          "doit-aksads"
+        ]
+      }
+    }
+  }
+}
