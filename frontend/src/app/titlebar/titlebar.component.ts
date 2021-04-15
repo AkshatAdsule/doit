@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-titlebar',
@@ -7,19 +7,17 @@ import { UserService } from '../user.service';
   styleUrls: ['./titlebar.component.scss'],
 })
 export class TitlebarComponent implements OnInit {
-  constructor(public user_service: UserService) {}
+  isLoggedIn!: boolean;
+  constructor(private auth: AngularFireAuth) {}
 
   ngOnInit(): void {
-    this.user_service.isLoggedIn.subscribe({
-      next(x) {
-        console.log('got value: ' + x);
-      },
-      error(err) {
-        console.error('something wrong occurred: ' + err);
-      },
-      complete() {
-        console.log('done');
-      },
+    this.auth.user.subscribe((user) => {
+      console.log(!!user?.uid);
+      this.isLoggedIn = !!user?.uid;
     });
+  }
+
+  logout(): void {
+    this.auth.signOut();
   }
 }

@@ -18,34 +18,32 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- not_logged_in items -->
+      <ng-template #not_logged_in>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/signup']">Sign Up</a>
+        </li>
+      </ng-template>
+
+      <!-- logged_in items -->
+      <ng-template #logged_in>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLink]="['/home']"
+            >My Lists</a
+          >
+        </li>
+        <li class="nav-item" (click)="logout()">
+          <a class="nav-link">Logout</a>
+        </li>
+      </ng-template>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            [routerLink]="['/']"
-            routerLinkActive="router-link-active"
-            >Home</a
-          >
-        </li>
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['/login']"
-            routerLinkActive="router-link-active"
-            >Login</a
-          >
-        </li>
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['/signup']"
-            routerLinkActive="router-link-active"
-            >Sign Up</a
-          >
-        </li>
+        <div *ngIf="isLoggedIn; then logged_in; else not_logged_in"></div>
       </ul>
     </div>
   </div>
