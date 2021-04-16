@@ -9,7 +9,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import {
+  AngularFireAnalyticsModule,
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -26,6 +30,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,8 @@ import { LoginComponent } from './login/login.component';
     AboutComponent,
     SignupComponent,
     LoginComponent,
+    HomeComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,7 @@ import { LoginComponent } from './login/login.component';
     AngularFireAuthGuardModule,
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
