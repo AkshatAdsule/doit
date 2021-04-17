@@ -1,7 +1,6 @@
 interface TodoList {
   owner: string;
-  editors?: User[];
-  share_type: ShareType;
+  editors?: string[];
   items: ToDoListItem[];
 }
 
@@ -17,10 +16,4 @@ interface User {
   last_name: string;
   uid?: string;
   lists?: string[];
-}
-
-declare enum ShareType {
-  private,
-  semi_public,
-  public,
 }

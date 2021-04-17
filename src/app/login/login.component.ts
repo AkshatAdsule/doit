@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth, private router: Router) {}
 
   onFormSubmit(): void {
     let formValue = this.login_form.value;
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
       .then((res) => {
         console.log('Logged In');
         console.log(res.user?.uid);
+        this.router.navigate(['home']);
       })
       .catch((err) => {
         console.log(err);
