@@ -13,9 +13,8 @@
 }
 
 .mock-list {
-  margin: 10%;
+  margin: 10% 15%;
   flex: 1;
-  // background-color: blue;
   background-color: var(--accent);
   border-radius: 15px;
   transform: rotate(-20deg);
@@ -50,8 +49,8 @@
   }
 
   .mock-list {
-    width: 50%;
-    margin: 0;
+    width: 60%;
+    margin: 10% 0;
     transform: none;
   }
 
