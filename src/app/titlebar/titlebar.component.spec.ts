@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { TitlebarComponent } from './titlebar.component';
+import { TitlebarComponent } from "./titlebar.component";
 
-describe('TitlebarComponent', () => {
+describe("TitlebarComponent", () => {
   let component: TitlebarComponent;
   let fixture: ComponentFixture<TitlebarComponent>;
 
@@ -18,7 +18,7 @@ describe('TitlebarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

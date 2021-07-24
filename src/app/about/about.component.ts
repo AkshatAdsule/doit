@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss'],
+  selector: "app-about",
+  templateUrl: "./about.component.html",
+  styleUrls: ["./about.component.scss"],
 })
 export class AboutComponent implements OnInit {
   public isChecked: boolean = true;
@@ -11,27 +11,27 @@ export class AboutComponent implements OnInit {
   public mockTodoItems: ToDoListItem[] = [
     {
       id: 0,
-      title: 'Generate mockups',
+      title: "Generate mockups",
       done: true,
     },
     {
       id: 1,
-      title: 'Finish User Interface',
+      title: "Finish User Interface",
       done: false,
     },
     {
       id: 2,
-      title: 'Finish Backend',
+      title: "Finish Backend",
       done: false,
     },
     {
       id: 3,
-      title: 'Open Alpha Testing',
+      title: "Open Alpha Testing",
       done: false,
     },
     {
       id: 5,
-      title: 'Finalize release',
+      title: "Finalize release",
       done: false,
     },
   ];
