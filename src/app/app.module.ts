@@ -31,7 +31,6 @@ import { AboutComponent } from "./about/about.component";
 import { SignupComponent } from "./signup/signup.component";
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
-import { LogoutComponent } from "./logout/logout.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { LogoutComponent } from "./logout/logout.component";
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +57,6 @@ import { LogoutComponent } from "./logout/logout.component";
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthGuardModule,
-    AngularFirestoreModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],

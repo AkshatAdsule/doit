@@ -7,7 +7,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
-import { LogoutComponent } from "./logout/logout.component";
 import { SignupComponent } from "./signup/signup.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
@@ -21,7 +20,6 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
-  { path: "logout", component: LogoutComponent },
   { path: "", component: AboutComponent },
 ];
 
