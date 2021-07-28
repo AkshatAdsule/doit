@@ -29,7 +29,7 @@
         *ngFor="let item of mockTodoItems"
         class="mock-todo"
         [checked]="item.done"
-        (change)="onCheckBoxClick(item.id)"
+        (change)="onCheckBoxClick(item.index)"
         >{{ item.title }}</mat-checkbox
       >
     </div>

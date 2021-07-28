@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { User } from "../types";
 
 @Component({
   selector: "app-signup",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ToDoListItem } from "../types";
 
 @Component({
   selector: "app-about",
@@ -10,27 +11,27 @@ export class AboutComponent implements OnInit {
 
   public mockTodoItems: ToDoListItem[] = [
     {
-      id: 0,
+      index: 0,
       title: "Generate mockups",
       done: true,
     },
     {
-      id: 1,
+      index: 1,
       title: "Finish User Interface",
       done: false,
     },
     {
-      id: 2,
+      index: 2,
       title: "Finish Backend",
       done: false,
     },
     {
-      id: 3,
+      index: 3,
       title: "Open Alpha Testing",
       done: false,
     },
     {
-      id: 5,
+      index: 5,
       title: "Finalize release",
       done: false,
     },
@@ -43,7 +44,7 @@ export class AboutComponent implements OnInit {
 
   onCheckBoxClick(id: number) {
     this.mockTodoItems.map((item) => {
-      if (item.id == id) {
+      if (item.index == id) {
         item.done = !item.done;
       }
     });

@@ -1,16 +1,18 @@
-interface TodoList {
+export interface TodoList {
+  title: string;
   owner: string;
+  color?: string;
   editors?: string[];
   items: ToDoListItem[];
 }
 
-interface ToDoListItem {
-  id: number;
+export interface ToDoListItem {
+  index: number;
   title: string;
   done: boolean;
 }
 
-interface User {
+export interface User {
   email: string;
   first_name: string;
   last_name: string;
