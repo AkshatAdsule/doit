@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { TodoList } from "../types";
+import { TodoList } from "../../types";
 
 @Component({
   selector: "app-list-overview",

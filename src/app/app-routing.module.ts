@@ -4,10 +4,10 @@ import {
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
 import { RouterModule, Routes } from "@angular/router";
-import { AboutComponent } from "./about/about.component";
-import { HomeComponent } from "./home/home.component";
-import { LoginComponent } from "./login/login.component";
-import { SignupComponent } from "./signup/signup.component";
+import { AboutComponent } from "./pages/about/about.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { SignupComponent } from "./pages/signup/signup.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
 

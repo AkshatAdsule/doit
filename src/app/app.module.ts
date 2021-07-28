@@ -25,13 +25,13 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 
 // Components
-import { TitlebarComponent } from "./titlebar/titlebar.component";
-import { FooterComponent } from "./footer/footer.component";
-import { AboutComponent } from "./about/about.component";
-import { SignupComponent } from "./signup/signup.component";
-import { LoginComponent } from "./login/login.component";
-import { HomeComponent } from "./home/home.component";
-import { ListOverviewComponent } from './list-overview/list-overview.component';
+import { TitlebarComponent } from "./components/titlebar/titlebar.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { AboutComponent } from "./pages/about/about.component";
+import { SignupComponent } from "./pages/signup/signup.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { ListOverviewComponent } from "./components/list-overview/list-overview.component";
 
 @NgModule({
   declarations: [
