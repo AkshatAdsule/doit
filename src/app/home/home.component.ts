@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { User } from "../types";
 
 @Component({
   selector: "app-home",
@@ -8,6 +9,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  public lists?: string[];
   constructor(
     private firestore: AngularFirestore,
     private auth: AngularFireAuth
@@ -16,14 +18,13 @@ export class HomeComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     let current_user: firebase.default.User | null = await this.auth
       .currentUser;
-    let lists = this.firestore
-      .collection<User>("users")
-      .doc(current_user?.email ?? "")
-      .get();
-    lists.subscribe({
-      next(list) {
-        console.log(list.data());
-      },
-    });
+    let email = current_user?.email;
+
+    this.firestore
+      .doc<User>(`/users/${email}`)
+      .valueChanges()
+      .subscribe((doc) => {
+        this.lists = doc?.lists!;
+      });
   }
 }

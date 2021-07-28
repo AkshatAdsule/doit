@@ -31,6 +31,7 @@ import { AboutComponent } from "./about/about.component";
 import { SignupComponent } from "./signup/signup.component";
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
+import { ListOverviewComponent } from './list-overview/list-overview.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HomeComponent } from "./home/home.component";
     SignupComponent,
     LoginComponent,
     HomeComponent,
+    ListOverviewComponent,
   ],
   imports: [
     BrowserModule,

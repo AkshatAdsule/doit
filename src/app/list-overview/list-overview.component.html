@@ -1,0 +1,20 @@
+<div
+  class="list"
+  [ngStyle]="{
+    'background-color': list?.color,
+    color: getTextColor(list?.color!)
+  }"
+>
+  <h2>{{ list?.title }}</h2>
+  <p>
+    <span class="todo"
+      >{{ notDoneCount }} {{ notDoneCount == 1 ? "item" : "items" }} todo</span
+    >,
+    <span class="done"
+      >{{ doneCount }} {{ doneCount == 1 ? "item" : "items" }} done</span
+    >
+  </p>
+  <button class="btn btn-outline-{{ isInLightMode ? 'light' : 'dark' }}">
+    View List
+  </button>
+</div>

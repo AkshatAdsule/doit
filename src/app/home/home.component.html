@@ -1,1 +1,10 @@
-<p>home works!</p>
+<main>
+  <h1>Your Lists</h1>
+
+  <div class="lists" *ngIf="lists">
+    <app-list-overview
+      *ngFor="let item of lists"
+      [document]="item"
+    ></app-list-overview>
+  </div>
+</main>
