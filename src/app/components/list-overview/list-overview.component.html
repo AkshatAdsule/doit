@@ -2,7 +2,7 @@
   class="list"
   [ngStyle]="{
     'background-color': list?.color,
-    color: getTextColor(list?.color!)
+    color: color.getTextColor(list?.color!)
   }"
 >
   <h2>{{ list?.title }}</h2>
@@ -14,7 +14,11 @@
       >{{ doneCount }} {{ doneCount == 1 ? "item" : "items" }} done</span
     >
   </p>
-  <button class="btn btn-outline-{{ isInLightMode ? 'light' : 'dark' }}">
+  <a
+    class="btn btn-outline-{{ isInLightMode ? 'dark' : 'light' }}"
+    [routerLink]="['/list/' + id]"
+    routerLinkActive="router-link-active"
+  >
     View List
-  </button>
+  </a>
 </div>
