@@ -1,0 +1,64 @@
+<app-loading-overlay *ngIf="!isVerified"></app-loading-overlay>
+<div *ngIf="isVerified" class="list">
+  <div
+    class="header"
+    [style]="{
+      'background-color': list!.color,
+      color: color.getTextColor(list!.color!)
+    }"
+  >
+    <input
+      type="text"
+      class="title editable-input"
+      maxlength="20"
+      [value]="list!.title"
+      [style]="{ color: color.getTextColor(list!.color!) }"
+      (change)="onTitleEdit($event)"
+    />
+    <p>
+      <span class="todo"
+        >{{ notDoneCount }}
+        {{ notDoneCount == 1 ? "item" : "items" }} todo</span
+      >,
+      <span class=""
+        >{{ doneCount }} {{ doneCount == 1 ? "item" : "items" }} done</span
+      >
+    </p>
+  </div>
+
+  <div class="items">
+    <div class="item item-real" *ngFor="let item of list!.items">
+      <div class="content">
+        <mat-checkbox (change)="onCheck(item.index)" [checked]="item.done">
+        </mat-checkbox>
+        <input
+          type="text"
+          class="editable-input item-title {{ item.done ? 'done' : '' }}"
+          [value]="item.title"
+          (change)="onItemEdit(item.index, $event)"
+        />
+      </div>
+      <button
+        button
+        mat-mini-fab
+        class="del-icon"
+        [color]="list!.color"
+        (click)="delete(item.index)"
+      >
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+
+    <div class="item" style="margin-top: 10px">
+      <div class="content">
+        <mat-checkbox [checked]="false"> </mat-checkbox>
+        <input
+          type="text"
+          class="editable-input item-title"
+          placeholder="New Item..."
+          (change)="addItem($event)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

@@ -32,6 +32,8 @@ import { SignupComponent } from "./pages/signup/signup.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { ListOverviewComponent } from "./components/list-overview/list-overview.component";
+import { ListComponent } from "./pages/list/list.component";
+import { LoadingOverlayComponent } from "./components/loading-overlay/loading-overlay.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ListOverviewComponent } from "./components/list-overview/list-overview.
     LoginComponent,
     HomeComponent,
     ListOverviewComponent,
+    ListComponent,
+    LoadingOverlayComponent,
   ],
   imports: [
     BrowserModule,
