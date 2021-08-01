@@ -23,6 +23,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { ColorPickerModule } from "ngx-color-picker";
 
 // Components
 import { TitlebarComponent } from "./components/titlebar/titlebar.component";
@@ -58,6 +59,7 @@ import { LoadingOverlayComponent } from "./components/loading-overlay/loading-ov
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
+    ColorPickerModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireAnalyticsModule,

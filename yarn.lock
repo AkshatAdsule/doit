@@ -7543,6 +7543,13 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ngx-color-picker@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-color-picker/-/ngx-color-picker-11.0.0.tgz#c1e5468505953bc579bf21014a135808820ea753"
+  integrity sha512-HyiFNPYLrCyYbFpLvZJaHC43RhjfDdFDij4pnvk9R46iH1scVtO6f2ibBgxRwBKKsT94KYvOH8wF8OrvztWdEw==
+  dependencies:
+    tslib "^2.0.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

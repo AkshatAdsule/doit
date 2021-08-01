@@ -21,6 +21,8 @@ export class ListComponent implements OnInit {
 
   public doneCount: number = 0;
   public notDoneCount: number = 0;
+  public bgColor: string = "#FFFFFF";
+  public showColorPicker: boolean = false;
 
   private listDoc?: AngularFirestoreDocument<TodoList>;
   private maxIndex: number = 0;
@@ -62,6 +64,7 @@ export class ListComponent implements OnInit {
       list?.items.forEach((i) => {
         this.maxIndex = i.index > this.maxIndex ? i.index : this.maxIndex;
       });
+      this.bgColor = list?.color!;
       if (
         this.isVerified ||
         (list?.editors?.indexOf(uid) !== -1 && list?.owner)
@@ -136,5 +139,13 @@ export class ListComponent implements OnInit {
       }
       this.router.navigate(["home"]);
     }
+  }
+
+  public toggleColorPicker() {
+    this.showColorPicker = !this.showColorPicker;
+  }
+
+  public onColorChange(newColor: string) {
+    this.listDoc?.update({ color: newColor });
   }
 }

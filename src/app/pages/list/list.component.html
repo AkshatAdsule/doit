@@ -27,14 +27,33 @@
     <div class="list-btns">
       <!-- <button button mat-mini-fab [color]="list!.color">
         <mat-icon>share</mat-icon>
-      </button>
-      <button button mat-mini-fab [color]="list!.color">
-        <mat-icon>palette</mat-icon>
       </button> -->
+      <button
+        button
+        mat-mini-fab
+        [color]="list!.color"
+        (click)="toggleColorPicker()"
+      >
+        <mat-icon>palette</mat-icon>
+      </button>
       <button button mat-mini-fab [color]="list!.color" (click)="deleteList()">
         <mat-icon>delete_outline</mat-icon>
       </button>
     </div>
+    <input
+      class="color-picker"
+      [hidden]="!showColorPicker"
+      [value]="bgColor"
+      [style.background]="bgColor"
+      cpOutputFormat="hex"
+      [cpOKButton]="true"
+      [cpCancelButton]="true"
+      cpOKButtonClass="btn btn-primary btn-xs"
+      cpCancelButtonClass="btn btn-danger btn-xs"
+      [cpPositionOffset]="'10px'"
+      [(colorPicker)]="bgColor"
+      (colorPickerClose)="onColorChange($event)"
+    />
   </div>
 
   <div class="items">

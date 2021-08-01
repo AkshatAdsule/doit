@@ -46,6 +46,14 @@
   margin: 0 5px;
 }
 
+.color-picker {
+  border: 2px solid black;
+  position: relative;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 10px 0;
+}
+
 @media screen and (min-width: 850px) {
   .del-icon {
     display: none;
