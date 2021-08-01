@@ -22,6 +22,7 @@ export class ListComponent implements OnInit {
   public doneCount: number = 0;
   public notDoneCount: number = 0;
   public bgColor: string = "#FFFFFF";
+  public colorPickerColor: string = "white";
   public showColorPicker: boolean = false;
 
   private listDoc?: AngularFirestoreDocument<TodoList>;
@@ -147,5 +148,9 @@ export class ListComponent implements OnInit {
 
   public onColorChange(newColor: string) {
     this.listDoc?.update({ color: newColor });
+  }
+
+  public changeColorPickerTextColor(color: string) {
+    this.colorPickerColor = this.color.getTextColor(color);
   }
 }
