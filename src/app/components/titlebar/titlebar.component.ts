@@ -12,7 +12,6 @@ export class TitlebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.user.subscribe((user) => {
-      console.log(!!user?.uid);
       this.isLoggedIn = !!user?.uid;
     });
   }
