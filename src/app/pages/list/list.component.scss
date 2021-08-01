@@ -42,17 +42,9 @@
   font-size: 36px;
 }
 
-// .del-icon {
-//   display: none;
-//   padding: 0;
-//   margin: 0;
-// }
-
-// .item-real:hover .del-icon {
-//   margin: 0;
-//   padding: 0;
-//   display: inline;
-// }
+.list-btns button {
+  margin: 0 5px;
+}
 
 @media screen and (min-width: 850px) {
   .del-icon {

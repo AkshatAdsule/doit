@@ -24,6 +24,17 @@
         >{{ doneCount }} {{ doneCount == 1 ? "item" : "items" }} done</span
       >
     </p>
+    <div class="list-btns">
+      <!-- <button button mat-mini-fab [color]="list!.color">
+        <mat-icon>share</mat-icon>
+      </button>
+      <button button mat-mini-fab [color]="list!.color">
+        <mat-icon>palette</mat-icon>
+      </button> -->
+      <button button mat-mini-fab [color]="list!.color" (click)="deleteList()">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
   </div>
 
   <div class="items">
