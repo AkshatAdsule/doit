@@ -41,6 +41,7 @@ export class SignupComponent implements OnInit {
             last_name: formValue.last_name,
             email: formValue.email,
             uid: res.user?.uid,
+            lists: [],
           });
         })
         .catch((err) => {
