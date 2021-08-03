@@ -25,9 +25,14 @@
       >
     </p>
     <div class="list-btns">
-      <!-- <button button mat-mini-fab [color]="list!.color">
+      <button
+        button
+        mat-mini-fab
+        [color]="list!.color"
+        (click)="openShareDialog()"
+      >
         <mat-icon>share</mat-icon>
-      </button> -->
+      </button>
       <button
         button
         mat-mini-fab

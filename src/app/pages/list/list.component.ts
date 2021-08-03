@@ -5,9 +5,15 @@ import {
   AngularFirestoreDocument,
 } from "@angular/fire/firestore";
 import { ActivatedRoute, Router } from "@angular/router";
-import { take } from "rxjs/operators";
 import { ColorService } from "src/app/services/color.service";
 import { TodoList, ToDoListItem, User } from "src/app/types";
+
+import { MatDialog } from "@angular/material/dialog";
+import {
+  ShareDialogComponent,
+  ShareDialogData,
+} from "../../components/share-dialog/share-dialog.component";
+import { FirebaseUtilService } from "src/app/services/firebase-util.service";
 
 @Component({
   selector: "app-list",
@@ -28,7 +34,6 @@ export class ListComponent implements OnInit {
   private listDoc?: AngularFirestoreDocument<TodoList>;
   private maxIndex: number = 0;
   private uid?: string;
-  private email?: string;
   private lists?: string[];
 
   constructor(
@@ -36,6 +41,8 @@ export class ListComponent implements OnInit {
     private firestore: AngularFirestore,
     private auth: AngularFireAuth,
     private router: Router,
+    private dialog: MatDialog,
+    private firestoreUtil: FirebaseUtilService,
     public color: ColorService
   ) {}
 
@@ -44,17 +51,10 @@ export class ListComponent implements OnInit {
     this.auth.user.subscribe((u) => {
       this.verify(u?.uid!);
       this.uid = u?.uid!;
-      this.email = u?.email!;
 
-      this.firestore
-        .doc<User>(`/users/${this.email!}`)
-        .valueChanges()
-        .pipe(take(2))
-        .subscribe((data) => {
-          this.lists = data?.lists!;
-          console.log("Lists");
-          console.log(this.lists);
-        });
+      this.firestoreUtil.getOnce<User>(`/users/${this.uid!}`).then((data) => {
+        this.lists = data?.lists!;
+      });
     });
 
     this.listDoc = this.firestore.doc<TodoList>(`lists/${this.id}`);
@@ -126,14 +126,28 @@ export class ListComponent implements OnInit {
     if (confirm("Are you sure you want to delete this list?")) {
       // remove list from user's lists
       this.firestore
-        .doc<User>(`/users/${this.email!}`)
+        .doc<User>(`/users/${this.uid!}`)
         .update({ lists: this.lists!.filter((list) => list !== this.id) });
       // check if this user is current owner or if they are the only editor,
-      if (this.list?.owner == this.uid || this.list?.editors!.length === 1) {
+      if (this.list?.owner == this.uid) {
         //  No one else can see the list... so delete it
+        for (let editor of this.list!.editors!) {
+          let edtitorData = await this.firestoreUtil.getOnce<User>(
+            `users/${editor}`
+          );
+          this.firestore.doc<User>(`users/${editor}`).update({
+            lists: edtitorData?.lists!.filter((list) => list !== this.id),
+          });
+        }
         await this.listDoc?.delete();
       } else {
         // remove this user from the editors and remove this list from user doc
+        {
+          this.lists = this.lists?.filter((list) => list !== this.id);
+          this.firestore.doc<User>(`users/${this.uid}`).update({
+            lists: this.lists,
+          });
+        }
         this.listDoc?.update({
           editors: this.list!.editors!.filter((u) => u !== this.uid),
         });
@@ -152,5 +166,22 @@ export class ListComponent implements OnInit {
 
   public changeColorPickerTextColor(color: string) {
     this.colorPickerColor = this.color.getTextColor(color);
+  }
+
+  openShareDialog() {
+    console.log(this.list?.editors!);
+    const dialogRef = this.dialog.open(ShareDialogComponent, {
+      disableClose: true,
+      data: {
+        uid: this.uid!,
+        listId: this.id!,
+        editors: this.list!.editors!,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(async (result: ShareDialogData) => {
+      console.log(result);
+      this.listDoc?.update({ editors: result.editors });
+    });
   }
 }

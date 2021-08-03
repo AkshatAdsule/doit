@@ -1,0 +1,35 @@
+<div class="main">
+  <div class="share-overview">
+    <div class="editors" *ngIf="listEditors.length > 0">
+      <h2>List Editors</h2>
+      <div class="editor" *ngFor="let editor of listEditors">
+        <p>{{ editor.first_name }} {{ editor.last_name }}</p>
+        <button
+          (click)="removeEditor(editor.uid!)"
+          mat-icon-button
+          cdkFocusInitial
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="no-editors" *ngIf="listEditors.length < 1">
+      <h2>Private list</h2>
+      <p>This list is only visible to you</p>
+    </div>
+  </div>
+
+  <div class="add-editor-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Add editor email</mat-label>
+      <input class="input" matInput [formControl]="addUserControl" required />
+      <button mat-icon-button matSuffix (click)="addEditor()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-error *ngIf="addUserControl.invalid">Email is invalid!</mat-error>
+    </mat-form-field>
+    <button mat-stroked-button [mat-dialog-close]="changedData" cdkFocusInitial>
+      Done
+    </button>
+  </div>
+</div>
