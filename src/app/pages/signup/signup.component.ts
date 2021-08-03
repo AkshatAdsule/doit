@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { User } from "../../types";
 
 @Component({
@@ -23,7 +24,8 @@ export class SignupComponent implements OnInit {
   });
   constructor(
     private auth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private router: Router
   ) {}
 
   onSignUp() {
@@ -36,13 +38,19 @@ export class SignupComponent implements OnInit {
         .then((res) => {
           // User was created successfully, add them to firestore
           let formValue = this.signup_form.value;
-          this.firestore.collection<User>("/users").doc(formValue.email).set({
-            first_name: formValue.first_name,
-            last_name: formValue.last_name,
-            email: formValue.email,
-            uid: res.user?.uid,
-            lists: [],
-          });
+          this.firestore
+            .collection<User>("/users")
+            .doc(res.user?.uid)
+            .set({
+              first_name: formValue.first_name,
+              last_name: formValue.last_name,
+              email: formValue.email,
+              uid: res.user?.uid,
+              lists: [],
+            })
+            .then(() => {
+              this.router.navigate(["/home"]);
+            });
         })
         .catch((err) => {
           console.log(err);

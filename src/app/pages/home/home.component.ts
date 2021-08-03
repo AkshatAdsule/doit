@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.email = current_user?.email!;
 
     this.firestore
-      .doc<User>(`/users/${this.email}`)
+      .doc<User>(`/users/${this.uid}`)
       .valueChanges()
       .subscribe((doc) => {
         this.lists = doc?.lists!;
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       })
       .then(async (doc) => {
         await this.firestore
-          .doc<User>(`/users/${this.email}`)
+          .doc<User>(`/users/${this.uid}`)
           .update({ lists: [...this.lists!, doc.id] });
         this.router.navigateByUrl(`/list/${doc.id}`);
       });
