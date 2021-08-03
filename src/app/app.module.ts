@@ -23,6 +23,8 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ColorPickerModule } from "ngx-color-picker";
 
 // Components
@@ -35,6 +37,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ListOverviewComponent } from "./components/list-overview/list-overview.component";
 import { ListComponent } from "./pages/list/list.component";
 import { LoadingOverlayComponent } from "./components/loading-overlay/loading-overlay.component";
+import { ShareDialogComponent } from "./components/share-dialog/share-dialog.component";
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { LoadingOverlayComponent } from "./components/loading-overlay/loading-ov
     ListOverviewComponent,
     ListComponent,
     LoadingOverlayComponent,
+    ShareDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,8 @@ import { LoadingOverlayComponent } from "./components/loading-overlay/loading-ov
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatInputModule,
+    MatDialogModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
