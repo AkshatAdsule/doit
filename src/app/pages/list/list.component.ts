@@ -174,7 +174,6 @@ export class ListComponent implements OnInit {
   }
 
   openShareDialog() {
-    console.log(this.list?.editors!);
     const dialogRef = this.dialog.open(ShareDialogComponent, {
       disableClose: true,
       data: {
@@ -185,7 +184,6 @@ export class ListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async (result: ShareDialogData) => {
-      console.log(result);
       this.listDoc?.update({ editors: result.editors });
     });
   }

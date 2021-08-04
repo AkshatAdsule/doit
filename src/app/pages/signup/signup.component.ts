@@ -52,9 +52,7 @@ export class SignupComponent implements OnInit {
               this.router.navigate(["/home"]);
             });
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     }
   }
 

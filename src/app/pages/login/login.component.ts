@@ -23,13 +23,9 @@ export class LoginComponent implements OnInit {
     this.auth
       .signInWithEmailAndPassword(formValue.email, formValue.password)
       .then((res) => {
-        console.log("Logged In");
-        console.log(res.user?.uid);
         this.router.navigate(["home"]);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
 
   ngOnInit(): void {}
