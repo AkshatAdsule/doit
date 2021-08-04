@@ -32,11 +32,9 @@ export class ShareDialogComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {
     this.changedData = data;
-    console.log(this.changedData);
   }
 
   async ngOnInit(): Promise<void> {
-    console.log(this.changedData);
     for (let user of this.changedData.editors) {
       let userData = await this.firestoreUtil.getOnce<User>(`/users/${user}`);
       if (userData?.uid! !== this.changedData.uid) {
@@ -48,7 +46,6 @@ export class ShareDialogComponent implements OnInit {
   async addEditor() {
     if (this.addUserControl.valid) {
       let email = this.addUserControl.value;
-      console.log(email);
       let userSnapshot = await this.firestore
         .collection<User>("users", (user) => user.where("email", "==", email))
         .get()
@@ -59,7 +56,6 @@ export class ShareDialogComponent implements OnInit {
       }
       let userData = userSnapshot.docs[0].data();
       if (this.changedData.editors.indexOf(userData.uid!) === -1) {
-        console.log(this.changedData.listId);
         this.firestore
           .doc<User>(`/users/${userData.uid!}`)
           .update({ lists: [...userData.lists!, this.changedData.listId] });
@@ -79,6 +75,7 @@ export class ShareDialogComponent implements OnInit {
     this.changedData.editors = this.changedData.editors.filter(
       (user) => user !== uid
     );
+    this.listEditors = this.listEditors.filter((user) => user.uid !== uid);
     let userData = await this.firestoreUtil.getOnce<User>(`/users/${uid}`);
     this.firestore.doc<User>(`/users/${uid}`).update({
       lists: userData!.lists!.filter(
