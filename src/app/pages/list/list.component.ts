@@ -61,22 +61,27 @@ export class ListComponent implements OnInit {
   }
 
   private verify(uid: string) {
-    this.listDoc!.valueChanges().subscribe((list) => {
-      list?.items.forEach((i) => {
-        this.maxIndex = i.index > this.maxIndex ? i.index : this.maxIndex;
-      });
-      this.bgColor = list?.color!;
-      if (
-        this.isVerified ||
-        (list?.editors?.indexOf(uid) !== -1 && list?.owner)
-      ) {
-        this.isVerified = true;
-        this.list = list;
-        this.doneCount = list?.items.filter((item) => item.done).length!;
-        this.notDoneCount = list?.items.length! - this.doneCount!;
-      } else {
-        this.router.navigate(["/home"]);
-      }
+    this.listDoc!.valueChanges().subscribe({
+      next: (list) => {
+        list?.items.forEach((i) => {
+          this.maxIndex = i.index > this.maxIndex ? i.index : this.maxIndex;
+        });
+        this.bgColor = list?.color!;
+        if (
+          this.isVerified ||
+          (list?.editors?.indexOf(uid) !== -1 && list?.owner)
+        ) {
+          this.isVerified = true;
+          this.list = list;
+          this.doneCount = list?.items.filter((item) => item.done).length!;
+          this.notDoneCount = list?.items.length! - this.doneCount!;
+        } else {
+          this.router.navigate(["/home"]);
+        }
+      },
+      error: () => {
+        this.router.navigateByUrl("home");
+      },
     });
   }
   public async onCheck(idx: number): Promise<void> {
@@ -124,10 +129,6 @@ export class ListComponent implements OnInit {
 
   public async deleteList(): Promise<void> {
     if (confirm("Are you sure you want to delete this list?")) {
-      // remove list from user's lists
-      this.firestore
-        .doc<User>(`/users/${this.uid!}`)
-        .update({ lists: this.lists!.filter((list) => list !== this.id) });
       // check if this user is current owner or if they are the only editor,
       if (this.list?.owner == this.uid) {
         //  No one else can see the list... so delete it
@@ -152,6 +153,10 @@ export class ListComponent implements OnInit {
           editors: this.list!.editors!.filter((u) => u !== this.uid),
         });
       }
+      // remove list from user's lists
+      this.firestore
+        .doc<User>(`/users/${this.uid!}`)
+        .update({ lists: this.lists!.filter((list) => list !== this.id) });
       this.router.navigate(["home"]);
     }
   }
