@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { User } from "../../types";
 
@@ -25,7 +26,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private auth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {}
 
   onSignUp() {
@@ -52,7 +54,12 @@ export class SignupComponent implements OnInit {
               this.router.navigate(["/home"]);
             });
         })
-        .catch((err) => {});
+        .catch((err) => {
+          this.snackbar.open(err.message, "Dismiss", {
+            verticalPosition: "top",
+            horizontalPosition: "center",
+          });
+        });
     }
   }
 
