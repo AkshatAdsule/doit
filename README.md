@@ -11,5 +11,5 @@ Doit is a platform that allows teams and individuals plan out, manage, and achie
 ### Screenshots
 
 ![Home Page](screenshots/home.png)
-![Home Page](screenshots/list-overview.png)!
+![Home Page](screenshots/list-overview.png)
 ![Home Page](screenshots/list-detail.png)
