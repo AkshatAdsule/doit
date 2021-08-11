@@ -38,6 +38,7 @@ import { ListOverviewComponent } from "./components/list-overview/list-overview.
 import { ListComponent } from "./pages/list/list.component";
 import { LoadingOverlayComponent } from "./components/loading-overlay/loading-overlay.component";
 import { ShareDialogComponent } from "./components/share-dialog/share-dialog.component";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,12 @@ import { ShareDialogComponent } from "./components/share-dialog/share-dialog.com
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthGuardModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
