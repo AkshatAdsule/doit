@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import {
   AngularFireAuthGuard,
+  redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
 import { RouterModule, Routes } from "@angular/router";
@@ -11,18 +12,40 @@ import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
+const redirectLoggedInToHome = () => redirectLoggedInTo(["home"]);
 
 const routes: Routes = [
-  { path: "signup", component: SignupComponent },
-  { path: "login", component: LoginComponent },
+  {
+    path: "signup",
+    component: SignupComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToHome },
+  },
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToHome },
+  },
   {
     path: "home",
     component: HomeComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
-  { path: "list/:id", component: ListComponent },
-  { path: "", component: AboutComponent },
+  {
+    path: "list/:id",
+    component: ListComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: "",
+    component: AboutComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToHome },
+  },
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({
